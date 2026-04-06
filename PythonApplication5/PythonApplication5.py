@@ -8,65 +8,65 @@ i = 1
 
 def ev():
     global dur, strength, hap, i
-    e = ("êà÷àòü õï", "êà÷àòü ñèëó", "ðàäîâàòüñÿ")
-    do = ("íàïàë âðàã", "ñâåòèò ñîëíöå")
+    e = ("качать хп", "качать силу", "радоваться")
+    do = ("напал враг", "светит солнце")
 
     while dur > 0 and hap > 0:
-        print("òåêóùèé äåíü:", i)
+        print("текущий день:", i)
 
-        print("âûáåðè äåéñòâèå")
+        print("выбери действие")
         print(*e, sep=', ')
         x = input("1/2/3: ")
         if x not in ("1", "2", "3"):
-            print("íåâåðíûé ââîä!")
+            print("неверный ввод!")
             print()
             continue
         if int(x) == 1:
-            print("âû ïðîêà÷àëè õï")
-            print("+10 õï, -1 íàñòðîåíèå")
+            print("вы прокачали хп")
+            print("+10 хп, -1 настроение")
             dur += 10
             hap -= 1
 
         elif int(x) == 2:
-            print("âû ïðîêà÷àëè ñèëó")
-            print("+1 ñèëà, -1 íàñòðîåíèå")
+            print("вы прокачали силу")
+            print("+1 сила, -1 настроение")
             strength += 1
             hap -= 1
 
         elif int(x) == 3:
-            print("âû ðàäóåòåñü")
-            print("+2 íàñòðîåíèå")
+            print("вы радуетесь")
+            print("+2 настроение")
             hap += 2
         if randint(1, 5) <= 2:
             b = randint(0, len(do)-1)
-            print("ÑÎÁÛÒÈÅ:", do[b])
+            print("СОБЫТИЕ:", do[b])
             if b == 0:
-                print("-30 õï")
+                print("-30 хп")
                 dur -= 30
             else:
-                print("+1 íàñòðîåíèå")
+                print("+1 настроение")
                 hap += 1
         else:
-            print("äåíü ïðîø¸ë ñïîêîéíî")
-        print("äåíü îêîí÷åí -1 íàñòðîåíèå")
+            print("день прошёл спокойно")
+        print("день окончен -1 настроение")
         hap -= 1
 
-        print("òåêóùèå õàðàêòåðèñòèêè:")
-        print("õï:", dur)
-        print("ñèëà:", strength)
-        print("íàñòðîåíèå:", hap)
+        print("текущие характеристики:")
+        print("хп:", dur)
+        print("сила:", strength)
+        print("настроение:", hap)
         i += 1
         print()
     if dur <= 0:
-        print("òû óìåð îò ïîòåðè çäîðîâüÿ")
+        print("ты умер от потери здоровья")
     elif hap <= 0:
-        print("òû âïàë â äåïðåññèþ")
-    print(f"òû ïðîæèë {i} äíåé")
-    print(f'òâîÿ ñèëà = {strength}')
+        print("ты впал в депрессию")
+    print(f"ты прожил {i} дней")
+    print(f'твоя сила = {strength}')
     if strength<20:
-        print('òû õèëÿê')
+        print('ты хиляк')
     elif strength<50:
-        print('òû êà÷îê')
+        print('ты качок')
     else:
-        print('òû ñàìûé êðóòîé')
+        print('ты самый крутой')
 ev()
